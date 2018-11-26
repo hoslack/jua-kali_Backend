@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'authors.apps.authentication',
     'authors.apps.articles.apps.ArticlesConfig',
     'authors.apps.comments.apps.CommentsConfig',
+    'authors.apps.products.apps.ProductsConfig',
+    'authors.apps.orders.apps.OrdersConfig',
     'authors.apps.core',
     'authors.apps.profiles',
     'authors.apps.ratings',

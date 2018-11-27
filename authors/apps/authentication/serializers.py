@@ -22,16 +22,6 @@ def password_validator(password):
     return password
 
 
-def password_validator(password):
-    password_pattern = re.compile(r"(?=^.{8,80}$)(?=.*\d)"
-                                  r"(?=.*[a-z])(?!.*\s).*$")
-    if not bool(password_pattern.match(password)):
-        raise serializers.ValidationError(
-            "Password invalid. Password must be 8 characters long, "
-            "include numbers and letters and have no spaces")
-    return password
-
-
 class RegistrationSerializer(serializers.ModelSerializer):
     """Serializers registration requests and creates a new user."""
 
@@ -81,7 +71,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         from authors.settings import EMAIL_HOST_NAME
 
         email = SendEmail(
-            mail_subject="Activate Authors' Haven account.",
+            mail_subject="Activate Juakali Smart account.",
             from_email=EMAIL_HOST_NAME,
             to=validated_data["email"],
             template='verification_email.html',

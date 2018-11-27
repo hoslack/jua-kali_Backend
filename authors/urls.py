@@ -31,6 +31,8 @@ urlpatterns = [
          include('authors.apps.articles.urls', namespace='articles')),
     path('api/v1/products/',
          include('authors.apps.products.urls', namespace='products')),
+    path('api/v1/orders/',
+         include('authors.apps.orders.urls', namespace='orders')),
     path('api/v1/articles/<str:slug>/comments/',
          include('authors.apps.comments.urls', namespace='comments')),
     path(

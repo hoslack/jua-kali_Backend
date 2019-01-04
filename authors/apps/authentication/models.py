@@ -56,7 +56,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     # the user anyways, we will also use the email for logging in because it is
     # the most common form of login credential at the time of writing.
     email = models.EmailField(db_index=True, unique=True)
-
+    business_type = models.TextField(default='', max_length=255)
+    location = models.TextField(default='', max_length=255)
+    phone = models.CharField(default='', max_length=15)
+    verified = models.BooleanField(default=False)
     # When a user no longer wishes to use our platform, they may try to delete
     # there account. That's a problem for us because the data we collect is
     # valuable to us and we don't want to delete it. To solve this problem, we

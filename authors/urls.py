@@ -27,6 +27,8 @@ schema_view.view_initkwargs['permission_classes'].clear()
 urlpatterns = [
     url(r'^$', schema_view),
     path('admin/', admin.site.urls),
+    path('api/v1/categories/',
+         include('authors.apps.categories.urls', namespace='categories')),
     path('api/v1/articles/',
          include('authors.apps.articles.urls', namespace='articles')),
     path('api/v1/products/',

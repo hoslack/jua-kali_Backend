@@ -25,7 +25,7 @@ DEBUG = os.environ['SCORPION_DEBUG']
 
 LOGIN_URL = "/api/v1/users/login/"
 
-ALLOWED_HOSTS = ["authors-haven-api.herokuapp.com", "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["juakaliapi.herokuapp.com", "127.0.0.1", "localhost"]
 
 # Application definition
 
@@ -41,10 +41,12 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
     'social_django',
+    'mptt',
     'authors.apps.authentication',
     'authors.apps.articles.apps.ArticlesConfig',
     'authors.apps.comments.apps.CommentsConfig',
     'authors.apps.products.apps.ProductsConfig',
+    'authors.apps.categories.apps.CategoriesConfig',
     'authors.apps.orders.apps.OrdersConfig',
     'authors.apps.core',
     'authors.apps.profiles',

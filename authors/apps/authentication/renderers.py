@@ -30,17 +30,17 @@ class UserJSONRenderer(JSONRenderer):
                 # here, the errors key was not found and will be added manually
                 errors = dict(errors=dict(detail=errors))
                 return super(UserJSONRenderer, self).render(errors)
-        try:
-            confirm_user = data['email']
-            user_db = User.objects.get(email=confirm_user)
-            if user_db.is_active is False:
-                return json.dumps({
-                    'Message':
-                        "Please confirm your email address "
-                        "to complete the registration"
-                })
-        except KeyError:
-            pass
+        # try:
+        #     confirm_user = data['email']
+        #     user_db = User.objects.get(email=confirm_user)
+        #     if user_db.is_active is False:
+        #         return json.dumps({
+        #             'Message':
+        #                 "Please confirm your email address "
+        #                 "to complete the registration"
+        #         })
+        # except KeyError:
+        #     pass
 
         token = generate_token(data)
         data['token'] = token

@@ -61,26 +61,26 @@ class RegistrationSerializer(serializers.ModelSerializer):
         fields = ['email', 'username', 'password']
 
     def create(self, validated_data):
-        # Use the `create_user` method we wrote earlier to create a new user.
-
-        # import generate_token
-        # 'generate_token' is imported to prevent import error
-        from authors.apps.core.token import generate_token
-        from authors.apps.core.e_mail import SendEmail
-        from django.contrib.sites.shortcuts import get_current_site
-        from authors.settings import EMAIL_HOST_NAME
-
-        email = SendEmail(
-            mail_subject="Activate Juakali Smart account.",
-            from_email=EMAIL_HOST_NAME,
-            to=validated_data["email"],
-            template='verification_email.html',
-            content={
-                'user': validated_data,
-                'domain': get_current_site(self.context["request"]).domain,
-                'token': generate_token(validated_data),
-            })
-        email.send()
+        # # Use the `create_user` method we wrote earlier to create a new user.
+        #
+        # # import generate_token
+        # # 'generate_token' is imported to prevent import error
+        # from authors.apps.core.token import generate_token
+        # from authors.apps.core.e_mail import SendEmail
+        # from django.contrib.sites.shortcuts import get_current_site
+        # from authors.settings import EMAIL_HOST_NAME
+        #
+        # email = SendEmail(
+        #     mail_subject="Activate Juakali Smart account.",
+        #     from_email=EMAIL_HOST_NAME,
+        #     to=validated_data["email"],
+        #     template='verification_email.html',
+        #     content={
+        #         'user': validated_data,
+        #         'domain': get_current_site(self.context["request"]).domain,
+        #         'token': generate_token(validated_data),
+        #     })
+        # email.send()
         return User.objects.create_user(**validated_data)
 
 

@@ -20,7 +20,7 @@ from django.urls import path
 from django.conf.urls import url
 from rest_framework_swagger.views import get_swagger_view
 
-schema_view = get_swagger_view(title="Author's Haven")
+schema_view = get_swagger_view(title="JuaKali")
 
 schema_view.view_initkwargs['permission_classes'].clear()
 
@@ -29,14 +29,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/categories/',
          include('authors.apps.categories.urls', namespace='categories')),
-    path('api/v1/articles/',
-         include('authors.apps.articles.urls', namespace='articles')),
+    # path('api/v1/articles/',
+    #      include('authors.apps.articles.urls', namespace='articles')),
     path('api/v1/products/',
          include('authors.apps.products.urls', namespace='products')),
     path('api/v1/orders/',
          include('authors.apps.orders.urls', namespace='orders')),
-    path('api/v1/articles/<str:slug>/comments/',
-         include('authors.apps.comments.urls', namespace='comments')),
+    # path('api/v1/articles/<str:slug>/comments/',
+    #      include('authors.apps.comments.urls', namespace='comments')),
     path(
         'api/v1/',
         include(

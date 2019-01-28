@@ -25,7 +25,7 @@ DEBUG = os.environ['SCORPION_DEBUG']
 
 LOGIN_URL = "/api/v1/users/login/"
 
-ALLOWED_HOSTS = ["authors-haven-api.herokuapp.com", "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["juakaliapi.herokuapp.com", "127.0.0.1", "localhost"]
 
 # Application definition
 
